@@ -22,3 +22,5 @@ HR Job Portal is a web-based platform designed to streamline the job search proc
 ## Usage
 To use HR jOb Portal, simply clone this repository to your local machine and open the `index.html` file in your preferred web browser. You can customize the website by editing the HTML, CSS, and JavaScript files as needed. Make sure to replace the placeholder images in the `img` directory with your own images.
 
+# live demo
+https://hr-job-portal.vercel.app/
