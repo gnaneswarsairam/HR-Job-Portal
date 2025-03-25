@@ -405,6 +405,90 @@ footer{
   font-size: 1.1rem;
 }
 
+/* Fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide-in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Bounce effect for buttons */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Smooth fade-in for sections */
+.sec-space, .extra-space {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Hero Section - Slide-in */
+.hero-box {
+  opacity: 0;
+  animation: slideInLeft 1s ease-in-out forwards;
+}
+
+/* Job Listings - Slide-in */
+.jobs-container .jlist {
+  opacity: 0;
+  animation: slideInRight 1s ease-in-out forwards;
+}
+
+/* Button Hover Bounce */
+#g-btn, #w-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+#g-btn:hover, #w-btn:hover {
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* Smooth Mobile Menu */
+#menu {
+  transition: all 0.3s ease-in-out;
+}
+
+#menu.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+
 @media(max-width: 1200px){
   .obj-width{
     width: 95%;
