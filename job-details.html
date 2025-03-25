@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Search Jobs</title>
+        <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    </head>
+
+    <body>
+
+        <!-- Header  Section-->
+        <header>
+            <div id="navbar" class="obj-width">
+                <a href="index.html"><img
+                    class="logo" src="images/Untitled design (7).png"></a>
+                    
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="job.html">Browse Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <a href="contact.html"><button id="w-btn">Join</button></a>
+                    </ul>
+                    <i id="bar" class='bx bx-menu'></i>
+                </div>
+        </header>
+
+        <div id="jobDetails" class="extra-space obj-width">
+
+        </div>
+
+        <!-- Footer  Section-->
+        <footer class="footer">
+            <div class="obj-width">
+                <div class="top">
+                    <div>
+                        <img class="logo" src="images/Untitled design (7).png" alt="">
+                        <p>Search Your Desired Jobs.</p>
+                    </div>
+                    <div>
+                        <a href="#"><i class='bx bxl-facebook-square'></i></a>
+                        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        <a href="#"><i class='bx bxl-behance' ></i></a>
+                        <a href="#"><i class='bx bxl-twitter' ></i></a>
+
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <div>
+                        <h3>Project</h3>
+                        <a href="#">Changelog</a>
+                        <a href="#">status</a>
+                        <a href="#">Licence</a>
+                        <a href="#">All Versions</a>
+
+                    </div>
+
+                    <div>
+                        <h3>Community</h3>
+                        <a href="#">Github</a>
+                        <a href="#">Issues</a>
+                        <a href="#">Projects</a>
+                        <a href="#">Twitter</a>
+
+                    </div>
+
+                    <div>
+                        <h3>Help</h3>
+                        <a href="#">Support</a>
+                        <a href="#">Troubleshoot</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+
+                    <div>
+                        <h3>Others</h3>
+                        <a href="#">Terms of Services</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Licence</a>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Ensure job-list.js is loaded before accessing jCategory
+                if (typeof jCategory === "undefined") {
+                    console.error("jCategory is not defined. Make sure job-list.js is loaded first.");
+                    return;
+                }
+        
+                // Get the job index from the URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const index = parseInt(urlParams.get("id"), 10); // Convert to number
+        
+                // Validate index
+                if (isNaN(index) || index < 0 || index >= jCategory.length) {
+                    console.error("Invalid job ID.");
+                    return;
+                }
+        
+                // Get the selected job
+                const selectedJob = jCategory[index];
+        
+                // Target the job details container
+                const jobDetailsContainer = document.getElementById("jobDetails");
+        
+                // Populate job details dynamically
+                jobDetailsContainer.innerHTML = `
+                    <div class="job-header">
+                        <div class="job-img-row">
+                            <img src="${selectedJob.image}" alt="${selectedJob.title}">
+                            <div>
+                                <h2>${selectedJob.companyName} </h2>
+                                <span>${selectedJob.location}</span>
+                            </div>
+                        </div>
+                        <a id="g-btn" href="#">Apply Now</a>
+                    </div>
+        
+                    <div class="Features sec-space obj-width">
+                        <div class="fe-box">
+                            <div>
+                                <img src="images/vacancy.png">
+                                <h3>vacancy</h3>
+                                <p>${selectedJob.vacancy}</p>
+                            </div>
+                            <div>
+                                <img src="images/fe 1.png">
+                                <h3>Position</h3>
+                                <p>${selectedJob.title}</p>
+                            </div>
+                            <div>
+                                <img src="images/hour.png">
+                                <h3>Hours</h3>
+                                <p>${selectedJob.hours}</p>
+                            </div>
+                            <div>
+                                <img src="images/salary.png">
+                                <h3>Salary</h3>
+                                <p>${selectedJob.rate}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-description sec-space">
+                <h3>Job Description</h3>
+            <p>${selectedJob.description}</p>
+            <h3>Employment Status</h3>
+            <p>${selectedJob.av}</p>
+            <h3>Workplace</h3>
+            <p>${selectedJob.workplace}</p>
+            <h3>Educational Requirements</h3>
+            <p>${selectedJob.education}</p>
+            <h3>Experience Requirements</h3>
+            <p>${selectedJob.experience}</p>
+            </div>
+
+                `;
+            });
+        </script>
+        
+
+        <script src="script.js"></script>
+        <script src="toggle.js"></script>
+        <script src="job-list.js"></script>
+        <script src="jobsearch.js"></script>
+        <script src="script.js"></script>
+    </body>
+
+</html>
